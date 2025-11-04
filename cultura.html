@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>cultura - Revista Digital USMP</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html">FIA <span>USMP</span></a></div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="ciencia.html">Ciencia</a>
+        <a href="cultura.html" class="active">Cultura</a>
+        <a href="tecnologia.html">Tecnología</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <button id="btn-buscar" class="btn-icon">🔍</button>
+    </div>
+    <div id="search-row" class="search-row" aria-hidden="true">
+      <div class="container">
+        <input type="text" id="buscar" placeholder="Buscar en Tecnología..." />
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Sección: Cultura</h1>
+    <p class="lead">Artículos de investigación y divulgación  USMP.</p>
+
+    <div class="controls">
+      <label>Mostrar por página:
+        <select id="per-page">
+          <option value="3">3</option>
+          <option value="2">2</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="articles-list" class="articles-list">
+    </div>
+
+    <div id="pagination" class="paginacion"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 USMP</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+  <script>$(function(){ initCultura(); });</script>
+</body>
+</html>

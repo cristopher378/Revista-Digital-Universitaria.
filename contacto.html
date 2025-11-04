@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Revista USMP</title>
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ac0d0d;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #990000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b30000;
+    }
+    footer {
+      text-align: center;
+      color: gray;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+
+  <script>
+    $(function() {
+      $("#dialog-confirmacion").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+          "Cerrar": function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+
+      $("#form-contacto").on("submit", function(e) {
+        e.preventDefault();
+        const nombre = $("#nombre").val();
+        const email = $("#email").val();
+        const mensaje = $("#mensaje").val();
+
+        if(nombre && email && mensaje) {
+          $("#dialog-confirmacion").dialog("open");
+          $("#form-contacto")[0].reset();
+        } else {
+          alert("Por favor, complete todos los campos.");
+        }
+      });
+
+      $("button").button();
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <h2>Contacto</h2>
+  </header>
+
+  <main>
+    <h1>Contáctanos</h1>
+    <p>Si deseas comunicarte con el equipo de la <strong>Revista Digital USMP</strong>, completa el siguiente formulario:</p>
+
+    <form id="form-contacto">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo">
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" placeholder="ejemplo@usmp.pe">
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <div id="dialog-confirmacion" title="Mensaje enviado">
+      <p>¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente. 
+      Nos comunicaremos contigo pronto.</p>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 USMP
+  </footer>
+</body>
+</html>
